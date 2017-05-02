@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textview_padding">12</dimen>
+    <dimen name="elevation">4</dimen>
+    <dimen name="seekbar_height">40</dimen>
+</resources>
