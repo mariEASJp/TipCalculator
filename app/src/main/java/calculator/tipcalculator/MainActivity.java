@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-                //Inflate the GUI
+        //Inflate the GUI
         setContentView(R.layout.activity_main);
 
         //References to textviews
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Calculate and display tip and amount
-    private void calculate(){
+    private void calculate() {
         //Format percent and display in txtPercent
         txtPercent.setText(percentFormat.format(percent));
 
@@ -76,43 +76,49 @@ public class MainActivity extends AppCompatActivity {
     //Listener object for the seekbar's change
     private final OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener() {
         //update percent then calculate
-              @Override
+        @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                  percent = progress / 100.0; //Set percent based on progress
-                  calculate();
+            percent = progress / 100.0; //Set percent based on progress
+            calculate();
         }
 
         @Override
-        public void onStartTrackingTouch(SeekBar seekbar){}
+        public void onStartTrackingTouch(SeekBar seekbar) {
+        }
 
         @Override
-        public void onStopTrackingTouch(SeekBar seekbar) {}
+        public void onStopTrackingTouch(SeekBar seekbar) {
+        }
     };
 
 
-
-    private final TextWatcher etxtAmountWatcher = new TextWatcher(){
+    private final TextWatcher etxtAmountWatcher = new TextWatcher() {
 
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             //called when the user modifies the bill amount
             try { //get bill amount and display the currency formatted value
-billAmount = Double.parseDouble(s.toString());
+                billAmount = Double.parseDouble(s.toString()) / 100.0;
                 txtAmount.setText(currencyFormat.format(billAmount));
-            } catch (NumberFormatException e){ // if s is empty or non-numeric
+            } catch (NumberFormatException e) { // if s is empty or non-numeric
                 txtAmount.setText("");
                 billAmount = 0.0;
             }
 
             calculate(); //update the tip and txtTotal
+
         }
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {        }
+
+
 
         @Override
-        public void afterTextChanged(Editable s) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+
+        @Override
+        public void afterTextChanged(Editable s) { }
     };
 
 
