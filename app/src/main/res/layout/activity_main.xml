@@ -9,32 +9,32 @@
     android:useDefaultMargins="true"
     tools:context="calculator.tipcalculator.MainActivity">
 
-    <EditText
-        android:id="@+id/etxtAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:layout_row="0"
-        android:digits="0123456789"
-        android:ems="10"
-        android:inputType="number"
-        android:maxLength="6"
-        android:singleLine="false" />
-
     <TextView
         android:id="@+id/txtAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:layout_gravity="fill_horizontal"
+        android:layout_gravity="fill_horizontal|fill"
         android:layout_row="0"
         android:elevation="@dimen/elevation"
-        android:gravity="fill_horizontal"
         android:hint="@string/enter_amount"
         android:padding="@dimen/textview_padding"
         tools:background="@color/amount_background" />
+
+    <EditText
+        android:id="@+id/etxtAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:layout_row="0"
+        android:digits="0123456789"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="6"
+        android:singleLine="false" />
 
     <TextView
         android:id="@+id/txtPercent"

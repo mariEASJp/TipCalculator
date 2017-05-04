@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtPercent;
     private TextView txtTip;
     private TextView txtTotal;
+    private EditText etxtAmount;
 
 
     @Override
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Set etxtAmount TextWatcher
-        EditText etxtAmount =
-                (EditText) findViewById(R.id.etxtAmount);
+        etxtAmount = (EditText) findViewById(R.id.etxtAmount);
         etxtAmount.addTextChangedListener(etxtAmountWatcher);
 
+        txtAmount.bringToFront();
 
         //set skbPercent's change listener
         SeekBar skbPercent = (SeekBar) findViewById(R.id.skbPercent);
